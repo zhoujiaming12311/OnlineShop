@@ -93,7 +93,7 @@
                     [
                     { id: 125, order: 1, path: 'users', authName: '用户管理', children: [{ id: 110, authName: '用户列表', order: 1, path: 'users' }] },
                     { id: 111, authName: '权限管理', order: 1, path: 'rights', children: [{ id: 126, authName: '权限列表', order: 1, path: 'rights' }, { id: 131, authName: '角色列表', order: 1, path: 'roles' }] },
-                    { id: 112, authName: '商品管理', order: 1, path: 'goods', children: [{ id: 127, authName: '商品列表', order: 1, path: 'goods' }, { id: 130, authName: '分类参数', order: 1, path: 'params' }] },
+                    { id: 112, authName: '商品管理', order: 1, path: 'goods', children: [{ id: 127, authName: '商品列表', order: 1, path: 'goods' }, { id: 130, authName: '分类参数', order: 1, path: 'params' }, { id: 140, authName: '商品分类', order: 1, path: 'Cates' }] },
                     { id: 113, authName: '订单管理', order: 1, path: 'orders', children: [{ id: 128, authName: '订单列表', order: 1, path: 'orders' }] },
                     { id: 114, authName: '统计管理', order: 1, path: 'reports', children: [{ id: 129, authName: '统计列表', order: 1, path: 'reports' }] }
                     ]

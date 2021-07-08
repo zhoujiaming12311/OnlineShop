@@ -9,6 +9,7 @@ import Rights from '../components/power/Rights'
 import Roles from '../components/power/Roles'
 import Cates from '../components/goods/Cate'
 import Params from '../components/goods/Params'
+import Lists from '../components/goods/List'
 
 Vue.use(VueRouter)
 // 配置路由规则，当用户访问login这个路径时，系统通过router-view自动展示Login这个组件
@@ -27,8 +28,9 @@ const routes = [
       { path: '/users', component: Users },
       { path: '/rights', component: Rights },
       { path: '/roles', component: Roles },
-      { path: '/goods', component: Cates },
-      { path: '/params', component: Params }
+      { path: '/Cates', component: Cates },
+      { path: '/params', component: Params },
+      { path: '/goods', component: Lists }
     ]
   }
 ]
