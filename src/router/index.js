@@ -10,6 +10,7 @@ import Roles from '../components/power/Roles'
 import Cates from '../components/goods/Cate'
 import Params from '../components/goods/Params'
 import Lists from '../components/goods/List'
+import Add from '../components/goods/add'
 
 Vue.use(VueRouter)
 // 配置路由规则，当用户访问login这个路径时，系统通过router-view自动展示Login这个组件
@@ -30,11 +31,11 @@ const routes = [
       { path: '/roles', component: Roles },
       { path: '/Cates', component: Cates },
       { path: '/params', component: Params },
-      { path: '/goods', component: Lists }
+      { path: '/goods', component: Lists },
+      { path: '/goods/add', component: Add }
     ]
   }
 ]
-
 const router = new VueRouter({
   routes
 })
@@ -50,7 +51,6 @@ router.beforeEach((to, from, next) => {
   }
   // 通过token判断当前用户是否处于登录状态，如果既不在登录状态且当前访问的又不是登录页面则强制跳转回登录页
   const tokenStr = window.sessionStorage.getItem('token')
-
   if (!tokenStr) {
     return next('/login')
   } else {

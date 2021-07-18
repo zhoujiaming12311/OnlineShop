@@ -3,11 +3,17 @@ import App from './App.vue'
 import router from './router'
 import 'default-passive-events'
 import './plugins/element.js'
+// 导入富文本编辑器
+import VueQuillEditor from 'vue-quill-editor'
 // 引用全局样式
 import global from './assets/css/global.css'
 // 全局引入axios，通过this.$http即可发起请求
 import axios from 'axios'
 import TreeTable from 'vue-table-with-tree-grid'
+// 导入富文本编辑器对应样式
+import 'quill/dist/quill.core.css'
+import 'quill/dist/quill.snow.css'
+import 'quill/dist/quill.bubble.css'
 // 配置请求默认根路径
 axios.defaults.baseURL = 'http://localhost:3000/'
 // 配置请求拦截器request,config为请求对象
@@ -23,7 +29,19 @@ Vue.prototype.$http = axios
 Vue.config.productionTip = false
 // 全局注册
 Vue.component('tree-table', TreeTable)
+// 注册富文本编辑器
+Vue.use(VueQuillEditor)
+Vue.filter('dataFormat', function (originVal) {
+  const dt = new Date(originVal)
+  const y = dt.getFullYear()
+  const m = (dt.getMonth() + 1 + '').padStart(2, '0')
+  const d = (dt.getDay() + '').padStart(2, '0')
+  const hh = (dt.getHours() + '').padStart(2, '0')
+  const mm = (dt.getMinutes() + '').padStart(2, '0')
+  const ss = (dt.getSeconds() + '').padStart(2, '0')
 
+  return `${y}-${m}-${d} ${hh}:${mm}:${ss}`
+})
 new Vue({
   router,
   global,
