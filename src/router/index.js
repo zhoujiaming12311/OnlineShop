@@ -11,6 +11,7 @@ import Cates from '../components/goods/Cate'
 import Params from '../components/goods/Params'
 import Lists from '../components/goods/List'
 import Add from '../components/goods/add'
+import Order from '../components/order/Order'
 
 Vue.use(VueRouter)
 // 配置路由规则，当用户访问login这个路径时，系统通过router-view自动展示Login这个组件
@@ -32,7 +33,8 @@ const routes = [
       { path: '/Cates', component: Cates },
       { path: '/params', component: Params },
       { path: '/goods', component: Lists },
-      { path: '/goods/add', component: Add }
+      { path: '/goods/add', component: Add },
+      { path: '/orders', component: Order }
     ]
   }
 ]
