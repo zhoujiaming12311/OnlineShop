@@ -14,14 +14,23 @@ import TreeTable from 'vue-table-with-tree-grid'
 import 'quill/dist/quill.core.css'
 import 'quill/dist/quill.snow.css'
 import 'quill/dist/quill.bubble.css'
+// 导入进度条NProgress的js与css
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
 // 配置请求默认根路径
 axios.defaults.baseURL = 'http://localhost:3000/'
+// 在request拦截器中，展示进度条NProgress.start()
 // 配置请求拦截器request,config为请求对象
 axios.interceptors.request.use(config => {
-  console.log(config)
+  NProgress.start()
   // 添加token令牌，服务器通过该对象进行判断是否符合要求，对于不符合要求的进行拒绝响应
   config.headers.Authorization = window.sessionStorage.getItem('token')
   // 在最后必须return config
+  return config
+})
+// 在response拦截器中隐藏进度条NProgress.done()
+axios.interceptors.response.use(config => {
+  NProgress.done()
   return config
 })
 // 在原型上新增属性绑定axios
